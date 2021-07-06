@@ -93,6 +93,7 @@ class individual:
             elif self.state == "food_search":
                 #do food logic
                 self.needs["hunger"] -= 3
+                self.needs["rest"] += 3
             else:
                 self.needs["rest"] += 1
                 self.needs["hunger"] += 1
