@@ -5,24 +5,25 @@ import  Tests.records as Records
 
 
 if __name__ == '__main__':
-    main_p = pops.population()
-    main_p.add_individual(1)
-    main_p.add_individual(1)
-    main_p.add_individual(1)
-    main_p.add_individual(1)
-    main_p.add_individual(1)
     r1 = Records.Record_Person()
-    g1 = Records.Record_Group()
+    a1 = Records.Record_Online_ID()
     l1 = Records.Record_Location()
-    l1.value = "Twitter"
+    g1 = Records.Record_Group()
 
-    l1.link_person(r1)
     r1.first_name = "Bob"
-    r1.last_name = "Stone"
-    g1.name = "First Group"
-    print(type(r1))
-    for loc in r1.linked_locations:
-        print(loc.value)
+    r1.last_name = "Bobson"
+    a1.value = "bob@bobson.com"
+    l1.value = "Twitter"
+    g1.name = "Microsoft"
+
+    r1.link_online_alias(a1)
+    r1.link_location(l1)
+    r1.link_group(g1)
+
+    print(r1.search_names("bob"))
+    print(r1.search_alias(("bob")))
+    print(r1.search_locations("twitter"))
+
 
 
 
